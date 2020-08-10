@@ -1,0 +1,47 @@
+CREATING A STATIC LIBRARY:
+
+We have 4 files:
+1) geometry.h
+2) trigon.c		//containce geometry.h header
+3) 2d.c			//containce geometry.h header
+4) 3d.c			//containce geometry.h header
+
+Creating object files:
+gcc -c trigon.c -o trigon.o
+gcc -c 2d.c -o 2d.o
+gcc -c 3d.c -o 3d.o
+
+Creating static library libgeometry.a:
+ar crs libgeometry.a trigon.o 2d.o 3d.o
+
+--------------------------------------------------------------------------------
+
+CREATING DYNAMIC LIBRARY:
+
+We have 4 files:
+--||--
+
+Creating object files:
+gcc -c 2d.c -fPIC -o 2d.o
+gcc -c 3d.c -fPIC -o 3d.o
+gcc -c trigon.c -fPIC -o trigon.o
+
+Creating shared object file (dynamic library) libgeometry.so:
+gcc -shared 2d.o 3d.o trigon.o -o libgeometry.so
+
+USAGE:
+add "export LD_LIBRARY_PATH=/path/to/library" to be able to use shared object file
+OR
+run "LD_LIBRARY_PATH=/path/to/library ./prog.out"
+--------------------------------------------------------------------------------
+
+lazy loading of shared object files
+
+--------------------------------------------------------------------------------
+
+Adding our library to program:
+1) main.c  //includes geometry.h header
+2) gcc -c main.c -o main.o
+3) gcc main.o -L/opt/geometry -lgeometry -lm -o prog.out  //our library libgeometry.a is located in /opt/geometry directory
+-lgeometry is libgeometry.a or libgeometry.so
+-lm is libm.a or libm.so (for the cos , sin , and acos functions)

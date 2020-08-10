@@ -1,0 +1,20 @@
+1) How can we get a translation unit:
+gcc -E impl.c
+
+2) How can we get a assembly code:
+gcc -S impl.c
+cat impl.s
+
+3) How can we get a machine code (relocatable object files):
+as impl.s -o impl.o
+
+
+
+How can we combine all previous steps:
+gcc -c impl.c -o impl.o
+gcc -c main.c -o main.o
+
+
+4) Linking object files:
+gcc impl.o main.o -o file.out
+./file.out
