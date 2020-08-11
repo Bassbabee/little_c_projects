@@ -1,0 +1,5 @@
+gcc -c gun.c -o gun.o
+gcc -c player.c -o player.o
+gcc -c main.c -o main.o
+gcc gun.o player.o main.o -o main.out
+./main.out

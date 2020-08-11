@@ -1,0 +1,11 @@
+COMPILE THE PROGRAM:
+gcc -c engine.c -o engine.o
+gcc -c car.c -o car.o
+gcc -c main.c -o main.o
+gcc engine.o car.o main.o -o main.out
+./main.out
+
+OUTPUT:
+Engine temperature before starting the car: 15.000000
+Engine temperature after starting the car: 75.000000
+Engine temperature after stopping the car: 15.000000
