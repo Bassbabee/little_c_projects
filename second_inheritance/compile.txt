@@ -1,0 +1,14 @@
+COMPILE:
+gcc -c person.c -o person.o
+gcc -c student.c -o student.o
+gcc -c main.c -o main.o
+gcc person.o student.o main.o -o main.out
+./main.out
+
+
+OUTPUT:
+First name: John
+Last name: Doe
+Birth year: 1987
+Student number: TA5667
+Passed credits: 134
