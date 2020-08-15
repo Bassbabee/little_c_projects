@@ -1,0 +1,12 @@
+COMPILE:
+gcc -c animal.c -o animal.o
+gcc -c cat.c -o cat.o
+gcc -c duck.c -o duck.o
+gcc -c main.c -o main.o
+gcc animal.o cat.o duck.o main.o -o main.out
+./main.out
+
+OUTPUT:
+Animal: Beeeep
+Cat: Meow
+Duck: Quake
