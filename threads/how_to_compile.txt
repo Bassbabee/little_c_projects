@@ -1,0 +1,2 @@
+for threads use: gcc main.c -o main.out -lpthread
+for shared memory use: gcc main.c -o main.out -lrt
